@@ -55,7 +55,7 @@ def test_prix_reservation(sport, est_abonne, prix_attendu):
     # On créé un adhérent avec le statut d'abonnement
     adherent_test = Adherent("Bob", 50, est_abonne=est_abonne)
     # On créé une salle
-    salle_test = (sport, 4)
+    salle_test = Salle(sport, 4)
     # On créé une réservation
     reservation = Reservation(adherent_test, salle_test, "2026-04-15", "14:00")
     # On vérifie que le prix de la réservation correspond au prix attendu
