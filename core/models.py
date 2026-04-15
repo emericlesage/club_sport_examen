@@ -1,3 +1,5 @@
+from enum import Enum
+
 class Adherent:
     def __init__(self, nom, solde, est_abonne=False):
         self.nom = nom
@@ -12,15 +14,20 @@ class Adherent:
     def solde_restant(self):
         # Retourne le solde restant de l'adhérent
         return self.solde
-    
+
+class TypeSalle(Enum):
+    TENNIS = "Tennis"
+    BADMINTON = "Badminton"
+    SQUASH = "Squash"
+ 
 class Salle:
-    def __init__(self, nom_type, capacite):
-        self._type = nom_type
+    def __init__(self, type_salle: TypeSalle, capacite):
+        self._type_salle = type_salle
         self._capacite = capacite
     
     @property
-    def type(self):
-        return self._type
+    def type_salle(self):
+        return self._type_salle
     
     @property
     def capacite(self):

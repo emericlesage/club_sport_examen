@@ -1,6 +1,5 @@
 import pytest
-from core.models import Adherent
-from core.models import Salle
+from core.models import Adherent, Salle, TypeSalle
 
 @pytest.fixture
 # Crée un adhérent pour les tests
@@ -18,11 +17,11 @@ def test_solde_restant(adherent_test):
 @pytest.fixture
 # Créé une salle de tennis pour 4 personnes
 def salle_test():
-    return Salle("Tennis", 4)
+    return Salle(TypeSalle.TENNIS, 4)
 
 def test_salle_type(salle_test):
     # On vérifie que la salle est bien de type "Tennis"
-    assert salle_test.type == "Tennis"
+    assert salle_test.type_salle == TypeSalle.TENNIS
 
 def test_salle_capacite(salle_test):
     # On vérifie que la salle est bien de capacité 4
